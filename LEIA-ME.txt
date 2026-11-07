@@ -1,9 +1,5 @@
-O REINO DE LUGAR NENHUM — BORN IN CHAOS
+Crônicas dos Herdeiros do Caos — Nicolau
 
-Abra index.html no Chrome ou Edge.
-
-Nesta versão, a resina negra nas laterais mantém sua largura reduzida.
-As gotas do teto nascem do líquido, se desprendem e descem até a borda inferior da tela.
-Não há poça no fundo. As imagens de Krampus e Nightmare Stalker foram preservadas.
-
-O site é uma experiência visual não oficial, inspirada no universo do mod Born in Chaos.
+Abra index.html no navegador.
+Os capítulos I–VIII estão no Volume I, com leitura dentro de caixa rolável e navegação pelo índice. Os capítulos IX e X estão reservados. Os volumes de Valentim e do Rei permanecem intactos.
+Todos os recursos visuais do HTML estão integrados ao próprio arquivo.
