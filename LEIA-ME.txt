@@ -1,5 +1,11 @@
-Crônicas dos Herdeiros do Caos — Nicolau
+AS CRÔNICAS DOS HERDEIROS DO CAOS
 
-Abra index.html no navegador.
-Os capítulos I–VIII estão no Volume I, com leitura dentro de caixa rolável e navegação pelo índice. Os capítulos IX e X estão reservados. Os volumes de Valentim e do Rei permanecem intactos.
-Todos os recursos visuais do HTML estão integrados ao próprio arquivo.
+Site completo, independente e disponível offline.
+
+Abra index.html em um navegador.
+
+Volume I: Nicolau (Krampus) — capítulos I a X.
+Volume II: Valentim (Nightmare Stalker) — capítulos I a X.
+Volume III: Rei de Lugar Nenhum — reservado para a próxima lore.
+
+Os efeitos visuais, o índice, a rolagem de leitura e a navegação de capítulos permanecem integrados ao HTML.
