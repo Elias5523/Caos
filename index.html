@@ -771,7 +771,7 @@ body.chapter-fullscreen-open{overflow:hidden}
 <div class="lore-scroll-progress" aria-hidden="true"><span id="lore-scroll-progress-fill"></span></div>
 <div class="chapter-reading-tools" aria-label="Controles de leitura do capítulo">
   <div class="chapter-font-actions"><button type="button" id="chapter-font-decrease" aria-label="Diminuir letra">A-</button><span id="chapter-font-indicator" class="chapter-font-indicator">17 px</span><button type="button" id="chapter-font-increase" aria-label="Aumentar letra">A+</button><button type="button" id="chapter-font-reset">PADRÃO</button></div>
-  <div class="chapter-layout-actions"><button type="button" id="chapter-reading-expand" aria-pressed="false">EXPANDIR LEITURA</button><button type="button" id="chapter-reading-fullscreen" aria-pressed="false">TELA CHEIA</button></div>
+  <div class="chapter-layout-actions"><button type="button" id="chapter-reading-expand" aria-pressed="false">EXPANDIR LEITURA</button></div>
 </div>
 <div class="lore-chapter-text" id="lore-chapter-text" role="region" tabindex="0" aria-labelledby="lore-chapter-title"></div>
 <div class="lore-scroll-hint"><span>↕ &nbsp; ROLE AQUI DENTRO PARA CONTINUAR A LEITURA</span><span>✣ &nbsp; VÉSPERA</span></div>
@@ -918,7 +918,6 @@ body.chapter-fullscreen-open{overflow:hidden}
         <button type="button" id="profile-increase" aria-label="Aumentar letra">A+</button>
         <button type="button" id="profile-reset">LETRA PADRÃO</button>
         <button type="button" id="profile-expand" aria-pressed="false">EXPANDIR LEITURA</button>
-        <button type="button" id="profile-fullscreen" aria-pressed="false">TELA CHEIA</button>
         <button type="button" class="profile-close" id="profile-close">FECHAR</button>
       </div>
     </div>
@@ -1840,12 +1839,11 @@ body.chapter-fullscreen-open{overflow:hidden}
     lastFocus=document.activeElement;
     character=defaultCharacter==='stalker'?'stalker':'krampus';
     overlay.hidden=false;document.body.classList.add('profile-open');
-    shell.classList.remove('fullscreen');qs('#profile-fullscreen').textContent='TELA CHEIA';qs('#profile-fullscreen').setAttribute('aria-pressed','false');
     showGrid();sizePrint();qs('#profile-close').focus({preventScroll:true});
   }
   function closeProfiles(){
     overlay.hidden=true;document.body.classList.remove('profile-open');
-    shell.classList.remove('fullscreen','reading-focus');
+    shell.classList.remove('reading-focus');
     lastFocus?.focus?.({preventScroll:true});
   }
   qs('#open-character-profiles')?.addEventListener('click',()=>{
@@ -1867,11 +1865,6 @@ body.chapter-fullscreen-open{overflow:hidden}
     if(!state)showGrid();
     content.scrollTop=0;
   });
-  qs('#profile-fullscreen').addEventListener('click',()=>{
-    const state=!shell.classList.contains('fullscreen');shell.classList.toggle('fullscreen',state);
-    qs('#profile-fullscreen').setAttribute('aria-pressed',String(state));
-    qs('#profile-fullscreen').textContent=state?'SAIR DA TELA CHEIA':'TELA CHEIA';
-  });
   overlay.addEventListener('keydown',e=>{
     if(e.key==='Tab'){
       const nodes=Array.from(overlay.querySelectorAll('button:not([disabled])')).filter(b=>b.getClientRects().length>0);
@@ -1884,25 +1877,18 @@ body.chapter-fullscreen-open{overflow:hidden}
   qs('#chapter-font-decrease')?.addEventListener('click',()=>{chapterSize=Math.max(14,chapterSize-2);setChapterSize()});
   qs('#chapter-font-increase')?.addEventListener('click',()=>{chapterSize=Math.min(30,chapterSize+2);setChapterSize()});
   qs('#chapter-font-reset')?.addEventListener('click',()=>{chapterSize=17;setChapterSize()});
-  const expand=qs('#chapter-reading-expand'),full=qs('#chapter-reading-fullscreen');
-  function closeChapterFull(){lore?.classList.remove('read-fullscreen');document.body.classList.remove('chapter-fullscreen-open');if(full){full.textContent='TELA CHEIA';full.setAttribute('aria-pressed','false')}}
+  const expand=qs('#chapter-reading-expand');
   expand?.addEventListener('click',()=>{
     const on=!lore.classList.contains('read-expanded');lore.classList.toggle('read-expanded',on);
     expand.textContent=on?'REDUZIR LEITURA':'EXPANDIR LEITURA';expand.setAttribute('aria-pressed',String(on));
-  });
-  full?.addEventListener('click',()=>{
-    const on=!lore.classList.contains('read-fullscreen');
-    if(on){lore.classList.add('read-fullscreen');document.body.classList.add('chapter-fullscreen-open');full.textContent='SAIR DA TELA CHEIA';full.setAttribute('aria-pressed','true')}
-    else closeChapterFull();
   });
   window.addEventListener('keydown',e=>{
     if(e.key!=='Escape')return;
     if(!overlay.hidden){
       e.preventDefault();
-      if(shell.classList.contains('fullscreen')){shell.classList.remove('fullscreen');qs('#profile-fullscreen').textContent='TELA CHEIA';qs('#profile-fullscreen').setAttribute('aria-pressed','false')}
-      else if(shell.classList.contains('reading-focus'))showGrid();
+      if(shell.classList.contains('reading-focus'))showGrid();
       else closeProfiles();
-    }else if(lore?.classList.contains('read-fullscreen')){e.preventDefault();closeChapterFull()}
+    }
   });
   setChapterSize();sizePrint();
 })();
