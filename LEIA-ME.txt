@@ -1,11 +1,12 @@
 AS CRÔNICAS DOS HERDEIROS DO CAOS
 
-Site completo, independente e disponível offline.
+Abra index.html no navegador.
 
-Abra index.html em um navegador.
+Volumes:
+I — Nicolau: 10 capítulos
+II — Valentim: 10 capítulos
+III — Rei de Lugar Nenhum: 5 capítulos
+IV — Lorde do Caos: capítulo I de V
 
-Volume I: Nicolau (Krampus) — capítulos I a X.
-Volume II: Valentim (Nightmare Stalker) — capítulos I a X.
-Volume III: Rei de Lugar Nenhum — reservado para a próxima lore.
-
-Os efeitos visuais, o índice, a rolagem de leitura e a navegação de capítulos permanecem integrados ao HTML.
+As interações com o Rei e o Lorde acontecem em Véspera, antes da Guerra de Minerva.
+A origem e a natureza das entidades e a ligação com os irmãos permanecem sem resolução canônica.
